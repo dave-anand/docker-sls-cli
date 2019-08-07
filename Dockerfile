@@ -23,3 +23,5 @@ RUN pip3 install awscli \
 # Serverless Framework
 RUN npm install --production -g serverless \
     && npm install serverless-webpack-plugin webpack
+
+ENTRYPOINT /bin/bash
