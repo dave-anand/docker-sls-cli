@@ -1,12 +1,10 @@
-FROM node:8-jessie
+FROM node:8-alpine
 
 # Define packages
-ENV PACKAGES "jq git"
+ENV PACKAGES "jq git bash"
 
-# Install Packages
-RUN apt-get update \
-    &&  apt-get install -y $PACKAGES
-
+# Install packages
+RUN apk add --no-cache --update $PACKAGES
 
 # Serverless Framework
 RUN npm install -g serverless

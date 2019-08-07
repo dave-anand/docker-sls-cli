@@ -1,6 +1,6 @@
 # AWS CLI Docker Container
 
-This is a containerized Serverless Framework CLI based on `node:8-jessie`.
+This is a containerized Serverless Framework CLI based on `node:8-alpine`.
 
 [![DockerHub Badge](http://dockeri.co/image/anand000/docker-sls-cli)](https://hub.docker.com/r/anand000/docker-sls-cli/)
 
