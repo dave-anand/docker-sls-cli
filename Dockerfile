@@ -1,5 +1,11 @@
 FROM node:alpine 
 
+# Define packages
+ENV PACKAGES "curl jq bash"
+
+# Install Packages
+RUN apk add --no-cache --update $PACKAGES
+
 # Python for AWS CLI
 RUN apk add --no-cache python3 \
     && python3 -m ensurepip \
@@ -9,9 +15,8 @@ RUN apk add --no-cache python3 \
     && if [[ ! -e /usr/bin/python ]]; then ln -sf /usr/bin/python3 /usr/bin/python; fi \
     && rm -r /root/.cache
 
-# Packages and AWS CLI
-RUN apk add --no-cache --update $PACKAGES \
-    && pip3 install awscli \
+# Install AWS CLI
+RUN pip3 install awscli \
     && mkdir -p /root/.aws
 
 
